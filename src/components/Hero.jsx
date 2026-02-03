@@ -9,8 +9,8 @@ const Hero = () => {
             {/* Top Navigation */}
             <TopBar />
 
-            {/* Hero Section */}
-            <main role="main" className="fixed flex min-h-[60vh] w-full items-end justify-center overflow-hidden pb-6">
+            {/* Hero Section — mobile: image bottom touches screen bottom; desktop: unchanged */}
+            <main role="main" className="fixed flex h-screen md:h-auto md:min-h-[60vh] w-full items-end justify-center overflow-hidden pb-0 md:pb-6">
                 {/* Horizontally scrolling background text (marquee) */}
                 <div aria-hidden="true" className="absolute inset-0 top-[-50vh] flex items-center justify-center pointer-events-none" >
                     <style>{`
@@ -33,12 +33,12 @@ const Hero = () => {
             }
           `}</style>
                     <div className="heroMarquee w-full leading-none">
-                        <div className="heroMarquee__track flex items-center justify-center font-serif font-black text-[#0b0b0e] select-none -translate-y-[2vh] text-[20vw] md:text-[12vw] lg:text-[12vw]">
+                        <div className="heroMarquee__track flex items-center justify-center font-serif font-black text-[#0b0b0e] select-none translate-y-[10vh] md:-translate-y-[2vh] text-[26vw] md:text-[14vw] lg:text-[14vw]">
                             <div className="mx-8 flex flex-col items-center">
-                                <span className="font-serif text-[20vw] md:text-[12vw] lg:text-[20vw]">
+                                <span className="font-serif text-[26vw] md:text-[14vw] lg:text-[14vw]">
                                     Thamesh Yadav —
                                 </span>
-                                <span className="mt-2 text-[4vw] md:text-[2vw] lg:text-[1.2vw] font-normal tracking-[0.25em] uppercase">
+                                <span className="mt-2 text-[5.5vw] md:text-[2.5vw] lg:text-[1.5vw] font-normal tracking-[0.25em] uppercase">
                                     Focused on AI systems, ethics, and applied intelligence.
                                 </span>
                             </div>
@@ -46,15 +46,15 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Center Robot Image */}
-                <div className="relative z-[2] grid w-[min(1100px,92vw)] place-items-center">
-                    <div className="grid aspect-[3/4] w-[min(780px,72vw)] place-items-center overflow-hidden bg-transparent text-[#2c2f33] font-semibold tracking-[0.04em]">
+                {/* Center Robot Image — mobile: full width + full height to fit screen; desktop: unchanged */}
+                <div className="relative z-[2] grid w-full place-items-center md:w-[min(1100px,92vw)]">
+                    <div className="grid h-[calc(100vh-50px)] w-full max-w-[100vw] place-items-center overflow-hidden bg-transparent text-[#2c2f33] font-semibold tracking-[0.04em] md:h-auto md:max-w-none md:aspect-[3/4] md:w-[min(780px,72vw)]">
                         <img
                             src={Roboimg}
                             loading="lazy"
                             decoding="async"
                             alt="Thinking Robot"
-                            className="  object-cover object-[center_top_30%] w-full h-full  "
+                            className="object-cover object-[center_bottom] w-full h-full md:object-[center_top_30%]"
                         />
                     </div>
                 </div>

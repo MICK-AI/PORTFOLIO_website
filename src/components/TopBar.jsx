@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import LinkTree from "./LinkTree";
 
@@ -38,7 +38,7 @@ const TopBar = () => {
                             <span className="hidden sm:inline">
                                 Messing with machines, ideas, and ethics.
                             </span>
-                            <span className="inline sm:hidden">CREATIVE NOMAD</span>
+                            <span className="inline sm:hidden">machines, ideas, and ethics.</span>
                         </p>
                     </div>
 
