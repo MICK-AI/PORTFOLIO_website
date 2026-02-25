@@ -13,7 +13,7 @@ const customColorMap = {
 
 // 🧩 Data for tiles
 const tiles = [
-    { id: "cloneables", title: "Blueprints", subtitle: "borrow the structure , own the result ↗", tag: "Borrow the structure, own the results", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/blueprints" },
+    { id: "cloneables", title: "Agents", subtitle: "intelligence in motion ↗", tag: "AUTONOMOUS SYSTEMS", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/agents" },
     { id: "youtube", title: "Projects", subtitle: "AI, applied with intent", tag: "#PORTFOLIO", bg: "bg-coral", colSpan: "md:col-span-3", rowSpan: "md:row-span-2", route: "/projects" },
     { id: "vacations", title: "Research Papers", subtitle: "Where intelligence begins.", tag: "#SOLOPRENEUR", bg: "bg-moss", colSpan: "md:col-span-2", route: "/research-papers" },
     { id: "designer", title: "Tutorials", subtitle: "Explaining complex ideas in simple steps", tag: "#DESIGN", bg: "bg-blush", colSpan: "md:col-span-2", route: "/ai-videos" },
@@ -108,7 +108,6 @@ export default function AnimatedTilesSection() {
                 .tile-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
                 .tile-flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
                 .tile-flip-back { transform: rotateY(180deg); }
-                .tile-comic { font-family: 'Comic Sans MS', 'Comic Sans', cursive; }
             `}} />
 
             {/* ✨ Floating gradient background */}
@@ -165,12 +164,12 @@ export default function AnimatedTilesSection() {
                                         {/* Front face (existing card content) */}
                                         <div className="tile-flip-face">
                                             <TiltWrapper>
-                                                <div className={`tile-comic pointer-events-none select-none h-full flex flex-col justify-center items-center text-center ${t.id === 'vacations' ? 'gap-2 md:gap-3' : 'gap-6 md:gap-8'}`}>
+                                                <div className={`pointer-events-none select-none h-full flex flex-col justify-center items-center text-center ${t.id === 'vacations' ? 'gap-2 md:gap-3' : 'gap-6 md:gap-8'}`}>
                                                     {t.subtitle && (
                                                         <motion.p
                                                             className={[
                                                                 t.id === "vacations" ? "mt-8" : "",
-                                                                "text-base md:text-base lg:text-lg tracking-widest uppercase opacity-80 text-center",
+                                                                "font-comic font-bold text-base md:text-base lg:text-lg tracking-widest uppercase opacity-80 text-center",
                                                             ].join(" ")}
                                                             whileHover={{ x: 5 }}
                                                             transition={{ type: "spring", stiffness: 200 }}
@@ -180,16 +179,16 @@ export default function AnimatedTilesSection() {
                                                     )}
                                                     <h3
                                                         className={[
-                                                            "text-6xl font-extrabold tracking-tighter leading-tight drop-shadow-sm text-center",
+                                                            "font-comic font-black tracking-tighter leading-tight drop-shadow-sm text-center",
                                                             isSmallerDesktopTitle
-                                                                ? "md:text-5xl lg:text-6xl xl:text-7xl"
-                                                                : "md:text-6xl lg:text-7xl xl:text-8xl",
+                                                                ? "text-5xl md:text-5xl lg:text-6xl xl:text-7xl"
+                                                                : "text-6xl md:text-6xl lg:text-7xl xl:text-8xl",
                                                         ].join(" ")}
                                                     >
                                                         {t.title}
                                                     </h3>
                                                     {t.tag && (
-                                                        <span className="inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base md:text-base font-medium px-4 py-2 min-h-[2.5rem] leading-none">
+                                                        <span className="font-comic font-bold inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base md:text-base px-4 py-2 min-h-[2.5rem] leading-none">
                                                             {t.tag}
                                                         </span>
                                                     )}
@@ -199,20 +198,20 @@ export default function AnimatedTilesSection() {
 
                                         {/* Back face */}
                                         <div className="tile-flip-face tile-flip-back">
-                                            <div className="tile-comic h-full w-full flex flex-col items-center justify-center text-center px-6">
-                                                <div className="text-xs md:text-sm tracking-widest uppercase opacity-80">
+                                            <div className="h-full w-full flex flex-col items-center justify-center text-center px-6">
+                                                <div className="font-comic font-bold text-xs md:text-sm tracking-widest uppercase opacity-80">
                                                     Open
                                                 </div>
                                                 <div
                                                     className={[
-                                                        "mt-4 text-4xl font-extrabold tracking-tighter drop-shadow-sm",
-                                                        isSmallerDesktopTitle ? "md:text-4xl" : "md:text-5xl",
+                                                        "font-comic mt-4 font-black tracking-tighter drop-shadow-sm",
+                                                        isSmallerDesktopTitle ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl",
                                                     ].join(" ")}
                                                 >
                                                     {t.title}
                                                 </div>
                                                 {t.route && (
-                                                    <div className="mt-6 inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base font-medium px-5 py-2.5 min-h-[2.75rem] leading-none">
+                                                    <div className="font-comic font-bold mt-6 inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base px-5 py-2.5 min-h-[2.75rem] leading-none">
                                                         View ↗
                                                     </div>
                                                 )}

@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import ResearchPapers from './pages/ResearchPapers'
-import Blueprints from './pages/Blueprints'
+import Agents from './pages/Agents'
 import Projects from './pages/Projects'
 import EDA from './pages/EDA'
 import AIVideos from './pages/AIVideos'
@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/research-papers" element={<ResearchPapers />} />
-        <Route path="/blueprints" element={<Blueprints />} />
+        <Route path="/agents" element={<Agents />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/eda" element={<EDA />} />
         <Route path="/ai-videos" element={<AIVideos />} />
