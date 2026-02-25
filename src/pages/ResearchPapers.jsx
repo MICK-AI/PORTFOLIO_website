@@ -51,6 +51,11 @@ const ResearchPapers = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-10 items-start mb-16 md:mb-20">
                         {/* Left: Giant heading */}
                         <div className="lg:col-span-5">
+                            <p
+                                className="mt-6 text-base md:text-base lg:text-lg tracking-widest uppercase opacity-80 research-stagger-1"
+                            >
+                                Where intelligence begins.
+                            </p>
                             <h1
                                 className="leading-[0.92] font-extrabold tracking-[-0.02em] text-black research-stagger-1"
                                 style={{
@@ -101,7 +106,7 @@ const ResearchPapers = () => {
                                     </div>
                                 </div>
                                 <p className="text-gray-500 leading-relaxed max-w-2xl">
-                                    This is where you can display your research papers, publications, and academic work. 
+                                    This is where you can display your research papers, publications, and academic work.
                                     You can add cards, links to PDFs, abstracts, and more.
                                 </p>
                             </div>
@@ -114,4 +119,3 @@ const ResearchPapers = () => {
 };
 
 export default ResearchPapers;
-

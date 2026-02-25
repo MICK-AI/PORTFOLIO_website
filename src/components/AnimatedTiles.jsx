@@ -13,11 +13,11 @@ const customColorMap = {
 
 // 🧩 Data for tiles
 const tiles = [
-    { id: "cloneables", title: "Manifesto", subtitle: "CLONE THOSE AND HAVE FUN ↗", tag: "Webflow", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/manifesto" },
-    { id: "youtube", title: "Projects", subtitle: "USE AI IN YOUR WEBDESIGN WORKFLOW↗", bg: "bg-coral", colSpan: "md:col-span-3", rowSpan: "md:row-span-2", route: "/projects" },
-    { id: "vacations", title: "Research Papers ↗", tag: "#SOLOPRENEUR", bg: "bg-moss", colSpan: "md:col-span-2", route: "/research-papers" },
-    { id: "designer", title: "AI Videos/Tutorials ↗", tag: "#DESIGN", bg: "bg-blush", colSpan: "md:col-span-2", route: "/ai-videos" },
-    { id: "awards", title: "Tools ↗", tag: "1X HONORABLE MENTION", bg: "bg-ocean", route: "/tools" },
+    { id: "cloneables", title: "Blueprints", subtitle: "borrow the structure , own the result ↗", tag: "Borrow the structure, own the results", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/blueprints" },
+    { id: "youtube", title: "Projects", subtitle: "AI, applied with intent", tag: "#PORTFOLIO", bg: "bg-coral", colSpan: "md:col-span-3", rowSpan: "md:row-span-2", route: "/projects" },
+    { id: "vacations", title: "Research Papers", subtitle: "Where intelligence begins.", tag: "#SOLOPRENEUR", bg: "bg-moss", colSpan: "md:col-span-2", route: "/research-papers" },
+    { id: "designer", title: "Tutorials", subtitle: "Explaining complex ideas in simple steps", tag: "#DESIGN", bg: "bg-blush", colSpan: "md:col-span-2", route: "/ai-videos" },
+    { id: "awards", title: "Tools", tag: "1X HONORABLE MENTION", bg: "bg-ocean", route: "/tools" },
 ];
 
 // 🌀 Parent animation container
@@ -73,10 +73,12 @@ function TiltWrapper({ children }) {
         <motion.div
             onPointerMove={onPointerMove}
             onPointerLeave={onPointerLeave}
+            className="h-full"
             style={{
                 rotateX: srx,
                 rotateY: sry,
                 transformStyle: "preserve-3d",
+                height: "100%",
             }}
             whileHover={{
                 scale: 1.06,
@@ -100,6 +102,15 @@ export default function AnimatedTilesSection() {
             ref={sectionRef}
             className="bg-white min-h-screen pt-24 pb-24 font-inter relative overflow-hidden"
         >
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                .tile-flip-scene { perspective: 1200px; height: 100%; }
+                .tile-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+                .tile-flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+                .tile-flip-back { transform: rotateY(180deg); }
+                .tile-comic { font-family: 'Comic Sans MS', 'Comic Sans', cursive; }
+            `}} />
+
             {/* ✨ Floating gradient background */}
             <motion.div
                 className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-gradient-to-r from-[#ff007f] to-[#00bfff] rounded-full blur-3xl opacity-20"
@@ -123,6 +134,8 @@ export default function AnimatedTilesSection() {
                 >
                     {tiles.map((t) => {
                         const style = customColorMap[t.bg] || { backgroundColor: '#FFFFFF', color: '#000000' };
+                        const isSmallerDesktopTitle =
+                            t.id === "vacations" || t.id === "designer" || t.id === "awards";
 
                         return (
                             <motion.article
@@ -136,35 +149,77 @@ export default function AnimatedTilesSection() {
                                     }
                                 }}
                                 className={[
-                                    "relative rounded-2xl p-2 md:p-8 shadow-xl transition-all duration-500 cursor-pointer group overflow-hidden",
+                                    "relative rounded-2xl shadow-xl transition-all duration-500 cursor-pointer group overflow-hidden",
                                     "ring-1 ring-black/10 hover:ring-4 hover:ring-white/30",
+                                    t.id === "vacations" ? "p-2 md:p-4" : "p-2 md:p-8",
                                     t.colSpan ?? "md:col-span-1",
                                     t.rowSpan ?? "md:row-span-1",
                                 ].join(" ")}
                             >
-                                <TiltWrapper>
-                                    <div className="pointer-events-none select-none h-full flex flex-col justify-between">
-                                        <div className="space-y-3">
-                                            {t.subtitle && (
-                                                <motion.p
-                                                    className="text-xs md:text-sm tracking-widest uppercase opacity-80"
-                                                    whileHover={{ x: 5 }}
-                                                    transition={{ type: "spring", stiffness: 200 }}
-                                                >
-                                                    {t.subtitle}
-                                                </motion.p>
-                                            )}
-                                            <h3 className="text-4xl md:text-5xl font-extrabold tracking-tighter leading-tight drop-shadow-sm">
-                                                {t.title}
-                                            </h3>
+                                <div className="tile-flip-scene">
+                                    <motion.div
+                                        className="tile-flip-inner"
+                                        whileHover={{ rotateY: 180 }}
+                                        transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                                    >
+                                        {/* Front face (existing card content) */}
+                                        <div className="tile-flip-face">
+                                            <TiltWrapper>
+                                                <div className={`tile-comic pointer-events-none select-none h-full flex flex-col justify-center items-center text-center ${t.id === 'vacations' ? 'gap-2 md:gap-3' : 'gap-6 md:gap-8'}`}>
+                                                    {t.subtitle && (
+                                                        <motion.p
+                                                            className={[
+                                                                t.id === "vacations" ? "mt-8" : "",
+                                                                "text-base md:text-base lg:text-lg tracking-widest uppercase opacity-80 text-center",
+                                                            ].join(" ")}
+                                                            whileHover={{ x: 5 }}
+                                                            transition={{ type: "spring", stiffness: 200 }}
+                                                        >
+                                                            {t.subtitle}
+                                                        </motion.p>
+                                                    )}
+                                                    <h3
+                                                        className={[
+                                                            "text-6xl font-extrabold tracking-tighter leading-tight drop-shadow-sm text-center",
+                                                            isSmallerDesktopTitle
+                                                                ? "md:text-5xl lg:text-6xl xl:text-7xl"
+                                                                : "md:text-6xl lg:text-7xl xl:text-8xl",
+                                                        ].join(" ")}
+                                                    >
+                                                        {t.title}
+                                                    </h3>
+                                                    {t.tag && (
+                                                        <span className="inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base md:text-base font-medium px-4 py-2 min-h-[2.5rem] leading-none">
+                                                            {t.tag}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </TiltWrapper>
                                         </div>
-                                        {t.tag && (
-                                            <span className="inline-flex items-center rounded-full bg-black/20 backdrop-blur-sm text-xs md:text-sm font-medium px-3 py-1">
-                                                {t.tag}
-                                            </span>
-                                        )}
-                                    </div>
-                                </TiltWrapper>
+
+                                        {/* Back face */}
+                                        <div className="tile-flip-face tile-flip-back">
+                                            <div className="tile-comic h-full w-full flex flex-col items-center justify-center text-center px-6">
+                                                <div className="text-xs md:text-sm tracking-widest uppercase opacity-80">
+                                                    Open
+                                                </div>
+                                                <div
+                                                    className={[
+                                                        "mt-4 text-4xl font-extrabold tracking-tighter drop-shadow-sm",
+                                                        isSmallerDesktopTitle ? "md:text-4xl" : "md:text-5xl",
+                                                    ].join(" ")}
+                                                >
+                                                    {t.title}
+                                                </div>
+                                                {t.route && (
+                                                    <div className="mt-6 inline-flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm text-base font-medium px-5 py-2.5 min-h-[2.75rem] leading-none">
+                                                        View ↗
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                </div>
 
                                 {/* 🌟 Shimmer effect */}
                                 <motion.span

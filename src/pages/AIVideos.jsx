@@ -51,6 +51,11 @@ const AIVideos = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-10 items-start mb-16 md:mb-20">
                         {/* Left: Giant heading */}
                         <div className="lg:col-span-5">
+                            <p
+                                className="text-base md:text-base lg:text-lg tracking-widest uppercase opacity-80 aivideos-stagger-1"
+                            >
+                                Explaining complex ideas in simple steps
+                            </p>
                             <h1
                                 className="leading-[0.92] font-extrabold tracking-[-0.02em] text-black aivideos-stagger-1"
                                 style={{

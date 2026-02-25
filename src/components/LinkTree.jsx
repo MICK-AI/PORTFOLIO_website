@@ -8,38 +8,38 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
 
     // Links data - customize these with your actual links
     const links = [
-        { 
-            id: "github", 
-            label: "GitHub", 
-            url: "https://github.com", 
+        {
+            id: "github",
+            label: "GitHub",
+            url: "https://github.com/MICK-AI",
             icon: "🔗",
             description: "Code repositories"
         },
-        { 
-            id: "linkedin", 
-            label: "LinkedIn", 
-            url: "https://linkedin.com", 
+        {
+            id: "linkedin",
+            label: "LinkedIn",
+            url: "https://linkedin.com",
             icon: "💼",
             description: "Professional network"
         },
-        { 
-            id: "twitter", 
-            label: "Twitter/X", 
-            url: "https://twitter.com", 
+        {
+            id: "twitter",
+            label: "Twitter/X",
+            url: "https://twitter.com",
             icon: "🐦",
             description: "Thoughts & updates"
         },
-        { 
-            id: "instagram", 
-            label: "Instagram", 
-            url: "https://instagram.com", 
+        {
+            id: "instagram",
+            label: "Instagram",
+            url: "https://instagram.com",
             icon: "📷",
             description: "Visual stories"
         },
-        { 
-            id: "email", 
-            label: "Email", 
-            url: "mailto:electronforwork@gmail.com", 
+        {
+            id: "email",
+            label: "Email",
+            url: "mailto:electronforwork@gmail.com",
             icon: "✉️",
             description: "Get in touch",
             email: "electronforwork@gmail.com"
@@ -92,14 +92,14 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
 
 
     const popoverVariants = {
-        hidden: { 
-            opacity: 0, 
+        hidden: {
+            opacity: 0,
             scale: 0.8,
             y: -10,
             filter: "blur(4px)"
         },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             scale: 1,
             y: 0,
             filter: "blur(0px)",
@@ -154,7 +154,7 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
                     }}
                     className="origin-top-right"
                 >
-                    <div 
+                    <div
                         className="bg-white rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] w-[360px] border border-[#e8e8ef] overflow-visible"
                     >
                         {/* Header */}
@@ -196,29 +196,29 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
                                                 {link.description}
                                             </div>
                                         )}
-                                        
+
                                         {/* Email Tooltip - Inside the email section */}
                                         {link.id === "email" && (
                                             <AnimatePresence>
                                                 {isEmailHovered && (
                                                     <motion.div
-                                                        initial={{ 
-                                                            opacity: 0, 
-                                                            scale: 0.5, 
+                                                        initial={{
+                                                            opacity: 0,
+                                                            scale: 0.5,
                                                             y: -10,
                                                             rotate: -5,
                                                             filter: "blur(8px)"
                                                         }}
-                                                        animate={{ 
-                                                            opacity: 1, 
-                                                            scale: 1, 
+                                                        animate={{
+                                                            opacity: 1,
+                                                            scale: 1,
                                                             y: 0,
                                                             rotate: 0,
                                                             filter: "blur(0px)"
                                                         }}
-                                                        exit={{ 
-                                                            opacity: 0, 
-                                                            scale: 0.5, 
+                                                        exit={{
+                                                            opacity: 0,
+                                                            scale: 0.5,
                                                             y: -10,
                                                             rotate: 5,
                                                             filter: "blur(8px)"
@@ -239,7 +239,7 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
                                                                 </span>
                                                             </div>
                                                             {/* Arrow pointing up to the email link */}
-                                                            <div 
+                                                            <div
                                                                 className="absolute left-4 top-0 -translate-y-full"
                                                                 style={{
                                                                     borderBottom: "8px solid #0b0b0e",
@@ -253,15 +253,15 @@ const LinkTree = ({ isOpen, onClose, buttonRef }) => {
                                             </AnimatePresence>
                                         )}
                                     </div>
-                                    <svg 
-                                        width="16" 
-                                        height="16" 
-                                        viewBox="0 0 16 16" 
-                                        fill="none" 
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="opacity-0 group-hover:opacity-100 transition-opacity text-[#666]"
                                     >
-                                        <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </motion.a>
                             ))}
