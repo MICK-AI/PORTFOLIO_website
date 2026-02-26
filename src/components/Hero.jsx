@@ -33,9 +33,9 @@ const Hero = () => {
             }
           `}</style>
                     <div className="heroMarquee w-full leading-none">
-                        <div className="heroMarquee__track flex items-center justify-center font-serif font-black text-[#0b0b0e] select-none translate-y-[10vh] md:-translate-y-[2vh] text-[26vw] md:text-[14vw] lg:text-[14vw]">
+                        <div className="heroMarquee__track flex items-center justify-center font-comic font-black text-[#0b0b0e] select-none translate-y-[10vh] md:-translate-y-[2vh] text-[26vw] md:text-[14vw] lg:text-[14vw]">
                             <div className="mx-8 flex flex-col items-center">
-                                <span className="font-serif text-[26vw] md:text-[14vw] lg:text-[14vw]">
+                                <span className="font-comic text-[26vw] md:text-[14vw] lg:text-[14vw]">
                                     Thamesh Yadav —
                                 </span>
                                 <span className="mt-2 text-[5.5vw] md:text-[2.5vw] lg:text-[1.5vw] font-normal tracking-[0.25em] uppercase">
