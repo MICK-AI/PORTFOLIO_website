@@ -52,7 +52,7 @@ const EDA = () => {
                     {edaProjects.map((project) => (
                         <div
                             key={project.id}
-                            className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 group flex flex-col md:flex-row md:items-center justify-between gap-6"
+                            className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 group flex flex-col md:flex-row md:items-center justify-between gap-6 font-comic md:font-sans"
                         >
                             <div className="flex-1">
                                 <div className="flex items-center gap-3 mb-3">

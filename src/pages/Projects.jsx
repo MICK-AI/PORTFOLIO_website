@@ -121,7 +121,7 @@ const Projects = () => {
                             <div
                                 key={idx}
                                 onClick={() => project.link && navigate(project.link)}
-                                className={`relative overflow-hidden bg-gradient-to-br ${project.gradient} border border-gray-100 ${project.borderHover} hover:shadow-2xl ${project.shadowHover} transition-all duration-500 rounded-3xl p-8 md:p-10 flex flex-col h-full group cursor-pointer`}
+                                className={`relative overflow-hidden bg-gradient-to-br ${project.gradient} border border-gray-100 ${project.borderHover} hover:shadow-2xl ${project.shadowHover} transition-all duration-500 rounded-3xl p-8 md:p-10 flex flex-col h-full group cursor-pointer font-comic md:font-sans`}
                             >
                                 {/* Decorative Blur */}
                                 <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-white/40 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700 ease-in-out pointer-events-none" />

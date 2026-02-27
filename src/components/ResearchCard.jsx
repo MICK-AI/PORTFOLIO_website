@@ -10,7 +10,7 @@ const ResearchCard = ({ title, abstract, date, tags, link, conference }) => {
             viewport={{ once: true }}
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
-            className="group relative bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:border-gray-300 transition-all duration-300"
+            className="group relative bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-xl hover:border-gray-300 transition-all duration-300 font-comic md:font-sans"
         >
             <div className="flex flex-col h-full">
                 {/* Header */}

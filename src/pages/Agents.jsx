@@ -84,7 +84,7 @@ const Agents = () => {
 
                     {/* Content Area */}
                     <div className="space-y-8 agents-stagger-3">
-                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12">
+                        <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 md:p-12 font-comic md:font-sans">
                             <div className="space-y-4">
                                 <div className="flex items-center gap-3">
                                     <div className="w-12 h-12 rounded-lg bg-black/5 flex items-center justify-center">
