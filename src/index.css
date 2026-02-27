@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global reset: prevent mobile browsers from auto-italicizing text */
+/* Prevent mobile browsers from auto-italicizing text */
 *,
 *::before,
 *::after {
     font-style: normal;
+}
+
+/* Force Comic Neue on ALL text on mobile */
+@media (max-width: 767px) {
+
+    body,
+    body * {
+        font-family: 'Comic Neue', 'Comic Sans MS', 'Comic Sans', sans-serif !important;
+        font-style: normal !important;
+    }
 }
