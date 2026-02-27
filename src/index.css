@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global reset: prevent mobile browsers from auto-italicizing text */
+*,
+*::before,
+*::after {
+    font-style: normal;
+}

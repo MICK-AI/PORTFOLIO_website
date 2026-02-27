@@ -9,7 +9,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
-        comic: ['"Comic Sans MS"', '"Comic Sans"', 'cursive'],
+        comic: ['"Comic Sans MS"', '"Comic Sans"', 'sans-serif'],
       }
     },
   },
