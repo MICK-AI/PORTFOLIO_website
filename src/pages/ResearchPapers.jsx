@@ -82,6 +82,39 @@ const researchData = [
             "Recommended transparency and human-in-the-loop governance for responsible AI deployment."
         ],
         link: "#"
+    },
+    {
+        id: "03",
+        title: "Regional Dialect Bias in Hindi–English Code-Mixed NLP Systems: A Fairness and Interpretability Study",
+        type: "Research",
+        focusArea: "Multilingual NLP Fairness",
+        keywords: ["Hindi-English code-mixed", "dialect bias", "fairness", "interpretability", "LIME", "mBERT", "IndicBERT"],
+        status: "Published",
+        summary: "This study evaluates transformer-based multilingual models for dialect bias in Hindi–English code-mixed text, fine‑tuning mBERT and IndicBERT on classification tasks and measuring fairness with Equalized Odds. LIME interpretability reveals token‑level contributions of dialectal features to biased predictions. Mitigation strategies are proposed to improve inclusive AI deployment.",
+        problem: [
+            "Dialectal variations are under‑represented in training corpora, leading to potential misclassification.",
+            "Regional speech may be flagged as spam or toxic disproportionately.",
+            "Lack of fairness evaluation for intra‑language dialects."
+        ],
+        approach: [
+            "Fine‑tune mBERT and IndicBERT on Hindi‑English classification tasks.",
+            "Compute False Positive and False Negative rates per dialect group using Equalized Odds.",
+            "Apply LIME to analyze token‑level influence of dialectal markers.",
+            "Propose mitigation via re‑weighting and adversarial training."
+        ],
+        contributions: [
+            "Empirical evidence of dialect bias in multilingual models.",
+            "Methodology for fairness assessment of code‑mixed text.",
+            "Interpretability analysis linking dialect tokens to biased outcomes.",
+            "Mitigation strategies balancing fairness and accuracy."
+        ],
+        results: [
+            "Significant disparity in error rates across dialect groups observed.",
+            "Mitigation reduces disparity with minor impact on overall accuracy.",
+            "LIME highlights dialect‑specific tokens driving bias.",
+            "Recommendations for inclusive dataset collection."
+        ],
+        link: "#"
     }
 ];
 
