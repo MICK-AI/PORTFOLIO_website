@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Calendar, ExternalLink, Tag } from 'lucide-react';
+import { Calendar, ExternalLink, Tag } from 'lucide-react';
 
-const ResearchCard = ({ id, title, abstract, date, tags, link, conference, type, focusArea, keywords, status, summary, problem, approach, contributions, results }) => {
+const ResearchCard = ({ title, abstract, date, tags, link, conference, type, focusArea, keywords, status, summary, problem, approach, contributions, results }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}

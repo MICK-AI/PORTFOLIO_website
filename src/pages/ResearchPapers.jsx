@@ -538,17 +538,31 @@ const ResearchPapers = () => {
     useEffect(() => {
         const el = ref.current;
         if (!el) return;
+        const show = () => {
+            el.classList.add("research-visible");
+        };
+        // threshold must stay low: a tall section can have a small intersection ratio
+        // (visible strip / full section height), so 0.12 often never fires → page stays opacity:0.
         const io = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    el.classList.add("research-visible");
+                    show();
                     io.disconnect();
                 }
             },
-            { threshold: 0.12 }
+            { threshold: 0, rootMargin: "0px 0px 0px 0px" }
         );
         io.observe(el);
-        return () => io.disconnect();
+        // Fallback if IO never reports (edge environments) or element already in view with quirk
+        const fallback = window.setTimeout(() => {
+            if (!el.classList.contains("research-visible")) {
+                show();
+            }
+        }, 100);
+        return () => {
+            io.disconnect();
+            window.clearTimeout(fallback);
+        };
     }, []);
 
     return (

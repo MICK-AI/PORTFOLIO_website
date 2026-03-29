@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, useMotionValue, useSpring, useTransform, useAnimation } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 // 🎨 Custom colors for each tile
 const customColorMap = {
@@ -93,7 +93,6 @@ function TiltWrapper({ children }) {
 }
 
 export default function AnimatedTilesSection() {
-    const controls = useAnimation();
     const sectionRef = useRef(null);
     const navigate = useNavigate();
 
