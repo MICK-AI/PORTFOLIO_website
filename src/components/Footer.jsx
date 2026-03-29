@@ -37,7 +37,7 @@ const Footer = () => {
                             </p>
                             <div>
                                 <h4 className="font-semibold text-white">Independent Technical Reviewer</h4>
-                                <p className="text-sm text-gray-500">AI & Systems</p>
+                                <p className="text-sm text-gray-500">AI &amp; Systems</p>
                             </div>
                         </div>
 

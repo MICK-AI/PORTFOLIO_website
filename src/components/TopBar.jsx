@@ -1,11 +1,21 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import LinkTree from "./LinkTree";
 
 const TopBar = () => {
     const [isLinkTreeOpen, setIsLinkTreeOpen] = useState(false);
     const buttonRef = useRef(null);
+    const hoverTimeoutRef = useRef(null);
     const navigate = useNavigate();
+
+    const handleMouseEnter = useCallback(() => {
+        clearTimeout(hoverTimeoutRef.current);
+        setIsLinkTreeOpen(true);
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+        hoverTimeoutRef.current = setTimeout(() => setIsLinkTreeOpen(false), 150);
+    }, []);
 
     return (
         <>
@@ -42,30 +52,36 @@ const TopBar = () => {
                         </p>
                     </div>
 
-                    {/* Right side: button */}
-                    <button
-                        ref={buttonRef}
-                        onClick={() => setIsLinkTreeOpen(!isLinkTreeOpen)}
-                        aria-label="Link tree"
-                        className="
+                    {/* Right side: hover wrapper */}
+                    <div
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        className="relative"
+                    >
+                        <button
+                            ref={buttonRef}
+                            aria-label="Link tree"
+                            aria-expanded={isLinkTreeOpen}
+                            className="
             inline-flex items-center gap-2 px-[14px] py-[9px] 
             border border-[#e7e7ee] rounded-[12px] 
             bg-white text-[#111] text-[13px] no-underline 
             hover:bg-gray-50 active:scale-[0.98] transition-all
             whitespace-nowrap cursor-pointer relative
           "
-                    >
-                        <span>LINK TREE</span>
-                    </button>
+                        >
+                            <span>LINK TREE</span>
+                        </button>
+
+                        {/* Link Tree Popover */}
+                        <LinkTree 
+                            isOpen={isLinkTreeOpen} 
+                            onClose={() => setIsLinkTreeOpen(false)}
+                            buttonRef={buttonRef}
+                        />
+                    </div>
                 </header>
             </section>
-
-            {/* Link Tree Popover */}
-            <LinkTree 
-                isOpen={isLinkTreeOpen} 
-                onClose={() => setIsLinkTreeOpen(false)}
-                buttonRef={buttonRef}
-            />
         </>
     );
 };

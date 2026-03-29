@@ -115,6 +115,244 @@ const researchData = [
             "Recommendations for inclusive dataset collection."
         ],
         link: "#"
+    },
+    {
+        id: "04",
+        title: "Emergent Coordination Failures in Decentralized Multi-Agent AI Systems",
+        type: "Research",
+        focusArea: "Multi-Agent Systems Reliability & Safety",
+        keywords: ["Emergence", "Coordination Failure", "Non-Determinism", "Agent Conflict", "System Stability"],
+        status: "Published",
+        summary: "Decentralized multi-agent AI systems enable scalable and parallel decision-making, but they often exhibit emergent coordination failures due to non-deterministic interactions between agents. This study explores how independent agents, operating without centralized control, can enter unstable states such as cyclic dependencies, conflicting task execution, or inefficient equilibria. The paper analyzes these failure modes through simulated environments and proposes lightweight coordination and conflict-resolution strategies to improve system stability while preserving decentralization and scalability.",
+        problem: [
+            "Local agent policies optimize for partial objectives without a global view of the workflow.",
+            "Non-deterministic scheduling and message ordering amplify race conditions across peers.",
+            "Cycles and deadlocks emerge when agents wait on one another without a designated arbiter.",
+            "Standard single-agent debugging tools fail to explain cross-agent contention and retries."
+        ],
+        approach: [
+            "Implementation of a modular simulation harness that logs inter-agent messages, locks, and replans.",
+            "Adoption of lightweight quorum and tie-breaking rules for contested shared resources.",
+            "Integration of conflict-resolution layers that escalate only when local retries exceed a threshold.",
+            "Development of stability metrics that track oscillation, thrash rate, and equilibrium drift over episodes."
+        ],
+        contributions: [
+            "Developed a taxonomy of emergent coordination failures specific to decentralized agent stacks.",
+            "Introduced reproducible simulation scenarios that surface cyclic dependencies and inefficient equilibria.",
+            "Proven reduction in failure episodes when lightweight coordination hooks are applied.",
+            "Enhanced observability through traces that link agent decisions to system-wide coordination state."
+        ],
+        results: [
+            "Evaluated across diverse multi-agent simulations with varying topology and load profiles.",
+            "Demonstrated improved stability and fewer conflicting executions versus purely independent agents.",
+            "Maintained decentralization by avoiding a permanent central coordinator while adding optional mediators.",
+            "Improved interpretability of failure cases for operators reviewing coordination traces."
+        ],
+        link: "#"
+    },
+    {
+        id: "05",
+        title: "Transparency Versus Competitive Advantage in Proprietary AI Systems",
+        type: "Research",
+        focusArea: "AI Ethics & Disclosure Strategy",
+        keywords: ["Transparency", "Proprietary Models", "Stakeholder Trust", "Selective Disclosure"],
+        status: "Published",
+        summary: "Proprietary AI systems are now embedded in products customers rarely inspect end-to-end (e.g., ranking, pricing assistants, internal copilots). While transparency supports trust and safety, detailed disclosure can weaken commercial position or aid misuse. This paper explores how transparency requirements interact with competitive strategy and discusses patterns for responsible, bounded disclosure.",
+        problem: [
+            "Regulatory and customer pressure for openness conflicts with trade-secret protection.",
+            "Full model or data transparency is often infeasible without exposing sensitive assets.",
+            "Partial disclosure can be misread as completeness and create false confidence.",
+            "Teams lack shared criteria for which artifacts (cards, evals, incident logs) belong in public versus private channels."
+        ],
+        approach: [
+            "Analyzed disclosure tiers used in industry: capability cards, evaluation summaries, and incident reporting.",
+            "Utilized stakeholder mapping (users, regulators, partners) to align transparency depth with each audience.",
+            "Implemented governance templates that separate verifiable claims from marketing language.",
+            "Integrated periodic third-party review hooks where contracts and regulation allow."
+        ],
+        contributions: [
+            "Explored the structural tension between verifiable transparency and legitimate secrecy.",
+            "Discussed context-aware disclosure bundles rather than one-size-fits-all openness.",
+            "Highlighted failure modes when selective transparency is mistaken for full auditability.",
+            "Proposed pairing public summaries with private audit channels under clear scope rules."
+        ],
+        results: [
+            "Found that bounded disclosure with documented evaluation protocols often satisfies regulators better than vague openness.",
+            "Quantified communication overhead across tiered transparency using case-style comparisons.",
+            "Established that high-risk domains need stronger incident transparency even when model weights stay private.",
+            "Recommended explicit labeling of disclosure scope so recipients know what was not shared and why."
+        ],
+        link: "#"
+    },
+    {
+        id: "06",
+        title: "Dynamic Fairness Constraints in Adaptive AI Systems",
+        type: "Research",
+        focusArea: "AI Ethics & Optimization",
+        keywords: ["Dynamic Fairness", "Adaptive Systems", "Bias Drift", "Feedback Loops", "Multi-objective Optimization"],
+        status: "Published",
+        summary: "Modern AI systems operate in dynamic environments where data distributions and user interactions evolve over time, leading to shifting bias patterns. Traditional fairness approaches rely on static constraints, which may degrade system performance or fail to maintain fairness under changing conditions. This study introduces a dynamic fairness framework that continuously adapts constraints based on real-time feedback, enabling AI systems to balance fairness and efficiency over time. The paper evaluates trade-offs between predictive performance and fairness stability, proposing adaptive mechanisms for responsible and scalable AI deployment.",
+        problem: [
+            "Static fairness targets become misaligned when incoming data and user behavior drift from the training regime.",
+            "Tight fixed constraints can suppress accuracy just when the business needs responsiveness most.",
+            "Feedback loops between predictions and future inputs amplify bias unless monitored on a rolling basis.",
+            "Teams rarely instrument fairness metrics at the cadence required to catch slow-moving drift."
+        ],
+        approach: [
+            "Analyzed fairness definitions under distribution shift: which constraints remain meaningful when base rates move.",
+            "Utilized sliding windows and online monitors to estimate group error rates and disparity in near real time.",
+            "Implemented constraint schedulers that relax or tighten fairness penalties based on drift severity and risk tier.",
+            "Integrated multi-objective controllers that trade off accuracy, fairness stability, and compute budget per update cycle."
+        ],
+        contributions: [
+            "Explored how static versus dynamic fairness assumptions differ in production-like adaptive pipelines.",
+            "Discussed safe update rules so constraint changes do not oscillate or overreact to noisy short-term signals.",
+            "Highlighted failure modes when feedback loops hide drift until harms accumulate at the edge.",
+            "Proposed governance checkpoints for when to freeze updates, roll back, or escalate human review."
+        ],
+        results: [
+            "Found that adaptive constraints track shifting bias better than one-shot offline fairness tuning alone.",
+            "Quantified predictive performance versus fairness stability curves across simulated drift scenarios.",
+            "Established that window length and alert thresholds materially affect false alarms versus missed drift.",
+            "Recommended pairing dynamic constraints with explicit incident budgets and audit logs for accountability."
+        ],
+        link: "#"
+    },
+    {
+        id: "07",
+        title: "Self-Reflective Critique Loops for Tool-Using LLM Agents",
+        type: "Research",
+        focusArea: "LLM Orchestration & Agent Reasoning",
+        keywords: ["Self-Critique", "Verifier Modules", "Tool-Use Reliability", "Epistemic Calibration", "Multi-Step Reasoning"],
+        status: "Published",
+        summary: "Autonomous LLM agents that invoke tools can compound early errors because standard decoding interleaves planning and execution without a separable verification stage. Prior self-checking methods are often single-shot and statistically aligned with the same failure modes they aim to catch. This work formalizes an internal critique loop in which a distinct scorer evaluates draft actions and rationales prior to tool calls, with bounded iterations and explicit termination criteria tied to task risk. We study when additional reflection reduces tool and API misuse versus when it increases latency without measurable gain. Experiments span retrieval-augmented QA, code execution, and structured API orchestration; the paper reports protocols for coupling critique strength to error cost and stopping rules that limit runaway self-revision.",
+        problem: [
+            "Tool-using agents can lock onto incorrect plans before any external signal contradicts them.",
+            "Monolithic self-consistency checks reuse the same representation, limiting independent verification.",
+            "Unbounded reflection loops waste tokens and can reinforce spurious confidence.",
+            "Existing benchmarks rarely separate proposal quality from execution correctness across hops."
+        ],
+        approach: [
+            "Implementation of a dual-head architecture separating action proposal from critique scoring.",
+            "Adoption of hard gates on tool arguments using schema checks plus critique thresholds.",
+            "Integration of calibrated confidence targets so critique scores map to actionable accept or revise decisions.",
+            "Development of episode-level budgets that cap critique rounds by estimated risk and step depth."
+        ],
+        contributions: [
+            "Developed a reproducible critique-loop protocol for multi-step tool-using agents.",
+            "Introduced risk-conditioned stopping rules that trade latency for error reduction.",
+            "Proven measurable reductions in incorrect tool invocations on curated failure-rich suites.",
+            "Enhanced interpretability via structured traces linking critiques to revised actions."
+        ],
+        results: [
+            "Evaluated on retrieval, code, and API tasks with injected error modes and partial observability.",
+            "Demonstrated lower serious failure rates versus single-pass baselines at matched average latency budgets.",
+            "Maintained stable throughput when critique was restricted to high-stakes steps only.",
+            "Improved calibration of stated confidence versus observed success on held-out tool traces."
+        ],
+        link: "#"
+    },
+    {
+        id: "08",
+        title: "Resource-Aware Scheduling for Large-Scale Multi-Agent LLM Workloads",
+        type: "Research",
+        focusArea: "Distributed Multi-Agent Systems",
+        keywords: ["Token Budgeting", "Queueing Discipline", "SLA-Aware Routing", "Tenant Fairness", "Accelerator Heterogeneity"],
+        status: "Published",
+        summary: "Shared inference clusters now multiplex numerous concurrent agent sessions, yet first-come-first-served policies routinely inflate tail latency for short dependency chains while starving long-horizon jobs of predictable throughput. Classical schedulers seldom co-design token budgets, per-tenant contracts, and accelerator heterogeneity under bursty, non-stationary arrivals. This paper models agent workloads as stochastic DAGs with token demand at each vertex and proposes a weighted scheduling family that co-optimizes completion time, tail quantiles, and energy via admission control and priority aging. We analyze stability conditions under overload and compare against static priority and purely fair-share baselines using trace-driven simulation. The study characterizes when tenant-level fairness conflicts with cluster-wide utilization and gives operational guidance for capacity planning.",
+        problem: [
+            "Concurrent agent sessions create head-of-line blocking across shared model replicas.",
+            "Per-request limits ignore graph depth, fan-out, and cross-tenant contractual SLAs.",
+            "Power and thermal caps on GPUs introduce time-varying effective throughput.",
+            "Naive fairness can reward chatty low-value sessions at the expense of batch-critical pipelines."
+        ],
+        approach: [
+            "Analyzed arrival and service distributions from production-like agent traces and synthetic DAG generators.",
+            "Utilized weighted fair queueing with aging to mitigate starvation while honoring tiered priorities.",
+            "Implemented a two-level scheduler separating admission from intra-tenant step placement.",
+            "Integrated energy-aware placement across heterogeneous devices with predicted token cost per hop."
+        ],
+        contributions: [
+            "Explored scheduling trade-offs unique to token-metered, graph-structured agent workloads.",
+            "Discussed formal stability notions under bounded overload versus open-loop saturation.",
+            "Highlighted failure modes when static quotas misalign with episodic agent depth.",
+            "Proposed policy knobs that expose explicit latency–fairness–energy trade-offs to operators."
+        ],
+        results: [
+            "Found that SLA-weighted scheduling reduces p95 step latency versus FCFS on mixed traces.",
+            "Quantified throughput loss when enforcing strict tenant isolation under peak load.",
+            "Established sensitivity of tail latency to batching width and preemption granularity.",
+            "Recommended periodic re-tuning of weights using online utilization and backlog signals."
+        ],
+        link: "#"
+    },
+    {
+        id: "09",
+        title: "End-to-End Robustness Analysis for Orchestrated LLM Pipelines Under Adversarial Prompting",
+        type: "Research",
+        focusArea: "LLM Security & Pipeline Reliability",
+        keywords: ["Adversarial Prompts", "Prompt Injection", "Defense in Depth", "Stage Isolation", "Canary Evaluation"],
+        status: "Published",
+        summary: "Orchestrated systems chain retrievers, LLM calls, and tools such that adversarial content can cross privilege boundaries at inter-stage hand-offs, not only within a single chat turn. Prior defenses emphasize classifier or instruction hardening on one model, leaving ambiguous trust at schema parsing, retrieval fusion, and callback execution. This study maps attack surfaces along the orchestration graph and measures how perturbations propagate when intermediate outputs are lossily summarized or re-encoded. We evaluate layered mitigations combining strict data typing, role-separated prompts, retrieval allowlists, and canary probes inserted between stages. The paper reports precision and recall trade-offs for detectors versus structural constraints and identifies pipeline topologies where isolation yields larger gains than end-to-end monitoring alone.",
+        problem: [
+            "Untrusted user and document text co-mingle with trusted system instructions across hops.",
+            "Intermediate JSON or natural language summaries can strip provenance needed for policy checks.",
+            "Single-point filters miss attacks that only succeed after retrieval or tool feedback.",
+            "Evaluation suites rarely exercise multi-stage injection with realistic orchestration code paths."
+        ],
+        approach: [
+            "Implementation of explicit trust labels on payloads passed between pipeline stages.",
+            "Adoption of schema-first parsing with rejection of ill-typed tool arguments.",
+            "Integration of canary tokens and invariant checks after retrieval merge operations.",
+            "Development of an adversarial suite spanning injection, exfiltration, and privilege-stretch objectives."
+        ],
+        contributions: [
+            "Developed a graph-centric threat model aligned with deployed orchestration frameworks.",
+            "Introduced comparative metrics for cross-stage attack success versus single-model baselines.",
+            "Proven that structural constraints reduce certain injection classes without full retraining.",
+            "Enhanced reproducibility through open task definitions tied to pipeline topology."
+        ],
+        results: [
+            "Evaluated on multi-stage pipelines with retrieval, code execution, and external API calls.",
+            "Demonstrated lower end-to-end success rates for staged attacks when isolation and typing were combined.",
+            "Maintained acceptable task accuracy when defenses were scoped to high-risk transitions only.",
+            "Improved operator visibility via structured logs of blocked hand-offs and trigger reasons."
+        ],
+        link: "#"
+    },
+    {
+        id: "10",
+        title: "Human-in-the-Loop Optimization for Autonomous Agent Workflows Under Uncertainty",
+        type: "Research",
+        focusArea: "Human-AI Orchestration & Policy Design",
+        keywords: ["Selective Oversight", "Bandit Allocation", "Review Budget", "Workflow KPIs", "Decentralized Execution"],
+        status: "Published",
+        summary: "Autonomous agents can execute long action sequences with limited supervision, yet underspecified rewards and shifting environments make uniform human review infeasible at scale. Periodic auditing misses rare, high-impact failures, while reviewing every step collapses throughput. This paper treats oversight as a constrained sequential decision problem: allocate a finite review budget to actions whose correction yields the largest downstream utility gain. We combine lightweight automated risk scores with bandit-style selection of review slots and compare against static sampling and threshold-only triggers on simulated agent traces with injected faults. The analysis connects review policies to decentralized execution—humans constrain outcomes without centralizing step-by-step control. Empirical results characterize budget levels at which selective oversight matches full-review safety metrics on key KPIs.",
+        problem: [
+            "Human bandwidth is fixed while agent action volume scales with model speed.",
+            "Risk scores from the same model family can correlate with blind spots in failure modes.",
+            "Uniform sampling underweights long-horizon errors that surface only after many steps.",
+            "KPIs for business outcomes are misaligned with per-step correctness unless explicitly linked."
+        ],
+        approach: [
+            "Analyzed oversight as a stochastic knapsack and bandit problem with delayed rewards.",
+            "Utilized counterfactual estimates of downstream impact from corrective interventions.",
+            "Implemented adaptive review policies with exploration for rare failure clusters.",
+            "Integrated hard escalation paths for policy violations independent of model-based scores."
+        ],
+        contributions: [
+            "Explored principled trade-offs between review load and outcome-level safety metrics.",
+            "Discussed decentralization-preserving oversight that vetoes or revises without micromanaging plans.",
+            "Highlighted when bandit methods outperform fixed schedules under non-stationary drift.",
+            "Proposed reporting standards tying oversight budgets to auditable KPI improvements."
+        ],
+        results: [
+            "Found that impact-weighted selection reduces serious incidents versus uniform review at equal human cost.",
+            "Quantified sensitivity of outcomes to delay between action execution and human feedback.",
+            "Established that hybrid policies combining scores and exploration outperform pure thresholding.",
+            "Recommended explicit caps and rotation of reviewers to limit correlated acceptance bias."
+        ],
+        link: "#"
     }
 ];
 

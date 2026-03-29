@@ -68,7 +68,7 @@ const About = () => {
                         {/* Role band */}
                         <div className="mt-10 md:mt-12 about-stagger-3">
                             <p className="text-zinc-300 uppercase tracking-widest text-[11px] md:text-xs">
-                                BUILDING INTELLIGENT PRODUCTS AT THE CROSSPATHS OF AI ⎯ ETHICS ⎯ FUTURE TECH.
+                                BUILDING INTELLIGENT PRODUCTS AT THE CROSSPATHS OF AI ⎯ ETHICS ⎯ FUTURE TECH.
                             </p>
 
                             {/* Role card */}
