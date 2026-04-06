@@ -81,8 +81,8 @@ const Projects = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 projects-stagger-3">
                         {[
                             {
-                                title: "EDA",
-                                description: "Exploratory Data Analysis projects and deep dives into raw datasets, uncovering hidden patterns and insights.",
+                                title: "Data Science",
+                                description: "End-to-end data science work—from framing questions and cleaning messy data to statistical analysis, visualization, and communicating findings that drive decisions.",
                                 icon: "📊",
                                 gradient: "from-blue-50 to-indigo-50",
                                 iconBg: "bg-blue-100 text-blue-600",
@@ -91,8 +91,8 @@ const Projects = () => {
                                 link: "/projects/eda"
                             },
                             {
-                                title: "Feature Engineering",
-                                description: "Crafting robust features and transforming data to maximize the performance of machine learning models.",
+                                title: "Machine Learning",
+                                description: "Building and evaluating predictive models—feature engineering, training pipelines, validation, and tuning—so data becomes reliable predictions and actionable systems.",
                                 icon: "⚙️",
                                 gradient: "from-emerald-50 to-teal-50",
                                 iconBg: "bg-emerald-100 text-emerald-600",
