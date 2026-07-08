@@ -1,0 +1,331 @@
+/* ============================================================
+   ZEN MODE — global application transformation
+   Driven entirely by CSS variables + semantic classes
+   ============================================================ */
+
+/* --- Base document --- */
+html {
+  transition: background-color var(--transition-theme), color var(--transition-theme);
+}
+
+html.zen-mode {
+  color-scheme: dark;
+}
+
+html.zen-mode body {
+  background-color: var(--bg-base);
+  color: var(--text);
+  letter-spacing: var(--letter-spacing-body);
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme),
+    letter-spacing var(--transition-theme);
+}
+
+html.zen-mode #app-shell {
+  background: transparent;
+  color: var(--text);
+  transition: color var(--transition-theme);
+}
+
+/* --- Typography (global inheritance) --- */
+html.zen-mode h1,
+html.zen-mode h2,
+html.zen-mode h3,
+html.zen-mode h4 {
+  font-weight: var(--font-weight-heading);
+  letter-spacing: 0.01em;
+  transition: color var(--transition-theme);
+}
+
+/* --- Surface / page backgrounds --- */
+html.zen-mode section.bg-white,
+html.zen-mode section.bg-gray-50,
+html.zen-mode .bg-\[\#0a0a0a\],
+html.zen-mode .zen-tile-section {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--text);
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme),
+    filter var(--transition-theme);
+}
+
+/* --- Glass cards (auto-morph existing cards) --- */
+html.zen-mode .bg-white:not(section):not(.zen-environment *),
+html.zen-mode .bg-gray-50,
+html.zen-mode .bg-gray-100,
+html.zen-mode header.bg-white,
+html.zen-mode article.rounded-2xl,
+html.zen-mode article.rounded-\[24px\],
+html.zen-mode .rounded-\[24px\].border,
+html.zen-mode .rounded-2xl.border,
+html.zen-mode .zen-panel,
+html.zen-mode .zen-surface {
+  background: var(--surface-glass) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-glow), var(--shadow-soft);
+  transition:
+    background var(--transition-theme),
+    border-color var(--transition-theme),
+    box-shadow var(--transition-theme),
+    backdrop-filter var(--transition-theme),
+    transform var(--transition-theme),
+    opacity var(--transition-theme);
+}
+
+/* --- Text remapping via variables --- */
+html.zen-mode .text-black,
+html.zen-mode .text-\[\#0a0a0b\],
+html.zen-mode .text-\[\#0b0b0e\],
+html.zen-mode .text-\[\#111\],
+html.zen-mode .text-\[\#222\],
+html.zen-mode .text-\[\#161618\],
+html.zen-mode .text-\[\#2c2f33\] {
+  color: var(--text) !important;
+  transition: color var(--transition-theme);
+}
+
+html.zen-mode .text-gray-700,
+html.zen-mode .text-gray-800,
+html.zen-mode .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+html.zen-mode .text-gray-300 {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+html.zen-mode .text-gray-400,
+html.zen-mode .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+html.zen-mode .text-white {
+  color: var(--text) !important;
+}
+
+/* --- Borders & dividers --- */
+html.zen-mode .border-gray-100,
+html.zen-mode .border-gray-200,
+html.zen-mode .border-\[\#e8e8ef\],
+html.zen-mode .border-\[\#e7e7ee\],
+html.zen-mode .border-\[\#ececf2\] {
+  border-color: var(--border) !important;
+  transition: border-color var(--transition-theme);
+}
+
+html.zen-mode .bg-black\/10,
+html.zen-mode .border-black\/5,
+html.zen-mode .border-black\/10 {
+  background-color: var(--divider) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* --- Accent buttons --- */
+html.zen-mode button.bg-black,
+html.zen-mode a.bg-black,
+html.zen-mode .bg-\[\#0b0b0e\] {
+  background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan)) !important;
+  color: #fff !important;
+  box-shadow: 0 0 24px var(--accent-glow);
+  border-color: transparent !important;
+  transition:
+    background var(--transition-theme),
+    box-shadow var(--transition-theme),
+    transform 300ms ease;
+}
+
+html.zen-mode button.bg-black:hover,
+html.zen-mode a.bg-black:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 32px var(--accent-glow);
+}
+
+/* --- Reduce saturated blues --- */
+html.zen-mode .bg-ocean,
+html.zen-mode .from-\[\#00bfff\],
+html.zen-mode .to-\[\#00bfff\],
+html.zen-mode .text-\[\#00bfff\] {
+  filter: saturate(0.45) hue-rotate(20deg);
+  transition: filter var(--transition-theme);
+}
+
+html.zen-mode .from-\[\#ff007f\] {
+  opacity: 0.15;
+}
+
+/* --- Decorative elements: dim, don't remove theme --- */
+html.zen-mode .zen-decorative {
+  opacity: var(--decorative-opacity) !important;
+  filter: saturate(0.4) brightness(0.5);
+  pointer-events: none !important;
+  transition:
+    opacity var(--transition-theme),
+    filter var(--transition-theme);
+}
+
+/* --- Chrome: hide navigation & clutter --- */
+.zen-chrome {
+  transition:
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 650ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.zen-mode .zen-chrome {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-10px);
+  filter: blur(6px);
+}
+
+/* --- Essential controls always visible --- */
+html.zen-mode .zen-essential {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* --- Hero specific --- */
+html.zen-mode #hero {
+  background: transparent !important;
+  transition: background var(--transition-theme), filter var(--transition-theme);
+}
+
+html.zen-mode .heroMarquee__track {
+  animation-duration: calc(18s / var(--motion-scale)) !important;
+}
+
+/* --- Tile / particle motion --- */
+html.zen-mode .zen-tile-blob {
+  animation-duration: 32s !important;
+  opacity: 0.06 !important;
+  transition: opacity var(--transition-theme);
+}
+
+html.zen-mode .zen-tile-section article {
+  pointer-events: none;
+}
+
+html.zen-mode .tile-flip-inner {
+  transform: none !important;
+  transition: transform var(--transition-theme);
+}
+
+/* --- Calmer hover / motion --- */
+html.zen-mode * {
+  scroll-behavior: smooth;
+}
+
+html.zen-mode .zen-calm-hover:hover {
+  transform: none !important;
+}
+
+/* --- Heatmap --- */
+html.zen-mode .heatmap-cell[data-level="0"] { background: rgba(255, 255, 255, 0.04) !important; }
+html.zen-mode .heatmap-cell[data-level="1"] { background: rgba(6, 78, 59, 0.45) !important; }
+html.zen-mode .heatmap-cell[data-level="2"] { background: rgba(6, 95, 70, 0.6) !important; }
+html.zen-mode .heatmap-cell[data-level="3"] { background: rgba(16, 185, 129, 0.7) !important; }
+html.zen-mode .heatmap-cell[data-level="4"] { background: rgba(52, 211, 153, 0.8) !important; }
+html.zen-mode .heatmap-cell[data-level="5"] { background: rgba(110, 231, 183, 0.9) !important; }
+
+/* --- Cursor: use normal system pointer in Zen Mode --- */
+
+/* --- Environment layers (styled in component + here) --- */
+.zen-environment {
+  opacity: 0;
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.zen-mode .zen-environment {
+  opacity: 1;
+}
+
+.zen-environment__base {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-base);
+}
+
+.zen-environment__gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: zen-drift 28s ease-in-out infinite;
+}
+
+.zen-environment__gradient--a {
+  width: 70vmax;
+  height: 70vmax;
+  top: -20%;
+  left: -15%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+}
+
+.zen-environment__gradient--b {
+  width: 60vmax;
+  height: 60vmax;
+  bottom: -25%;
+  right: -10%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, transparent 70%);
+  animation-delay: -14s;
+  animation-duration: 36s;
+}
+
+.zen-environment__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  animation: zen-noise 8s steps(4) infinite;
+  mix-blend-mode: overlay;
+}
+
+.zen-environment__particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.4);
+  animation: zen-float 20s ease-in-out infinite;
+}
+
+.zen-environment__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+}
+
+@keyframes zen-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4%, 3%) scale(1.05); }
+  66% { transform: translate(-3%, 2%) scale(0.97); }
+}
+
+@keyframes zen-noise {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-5%, -5%); }
+}
+
+@keyframes zen-float {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  50% { transform: translateY(-30px) translateX(10px); opacity: 0.7; }
+}
+
+/* --- Cinematic overlay --- */
+.zen-cinematic-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99980;
+  background: #000000;
+  pointer-events: none;
+}

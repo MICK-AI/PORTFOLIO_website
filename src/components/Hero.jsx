@@ -5,14 +5,14 @@ import About from "./About";
 
 const Hero = () => {
     return (
-        <section id="hero" className=" relative min-h-screen overflow-hidden font-sans text-[#0a0a0b] bg-[linear-gradient(0deg,transparent_24%,#e7e7ea_25%,#e7e7ea_26%,transparent_27%,transparent_74%,#e7e7ea_75%,#e7e7ea_76%,transparent_77%),linear-gradient(90deg,transparent_24%,#e7e7ea_25%,#e7e7ea_26%,transparent_27%,transparent_74%,#e7e7ea_75%,#e7e7ea_76%,transparent_77%)]  bg-[length:40px_40px] bg-[position:0_0] w-[100%] " >
+        <section id="hero" className=" relative min-h-screen overflow-hidden font-sans text-[#0a0a0b] bg-[linear-gradient(0deg,transparent_24%,#e7e7ea_25%,#e7e7ea_26%,transparent_27%,transparent_74%,#e7e7ea_75%,#e7e7ea_76%,transparent_77%),linear-gradient(90deg,transparent_24%,#e7e7ea_25%,#e7e7ea_26%,transparent_27%,transparent_74%,#e7e7ea_75%,#e7e7ea_76%,transparent_77%)]  bg-[length:40px_40px] bg-[position:0_0] w-[100%] zen-decorative" >
             {/* Top Navigation */}
             <TopBar />
 
             {/* Hero Section — mobile: image bottom touches screen bottom; desktop: unchanged */}
             <main role="main" className="fixed flex h-screen md:h-auto md:min-h-[60vh] w-full items-end justify-center overflow-hidden pb-0 md:pb-6">
                 {/* Horizontally scrolling background text (marquee) */}
-                <div aria-hidden="true" className="absolute inset-0 top-[-50vh] flex items-center justify-center pointer-events-none" >
+                <div aria-hidden="true" className="absolute inset-0 top-[-50vh] flex items-center justify-center pointer-events-none zen-chrome" >
                     <style>{`
             .heroMarquee {
               overflow: hidden;
@@ -47,7 +47,7 @@ const Hero = () => {
                 </div>
 
                 {/* Center Robot Image — mobile: full width + full height to fit screen; desktop: unchanged */}
-                <div className="relative z-[2] grid w-full place-items-center md:w-[min(1100px,92vw)]">
+                <div className="relative z-[2] grid w-full place-items-center md:w-[min(1100px,92vw)] zen-decorative">
                     <div className="grid h-[calc(100vh-50px)] w-full max-w-[100vw] place-items-center overflow-hidden bg-transparent text-[#2c2f33] font-semibold tracking-[0.04em] md:h-auto md:max-w-none md:aspect-[3/4] md:w-[min(780px,72vw)]">
                         <img
                             src={Roboimg}
@@ -61,7 +61,7 @@ const Hero = () => {
             </main>
 
             {/* Scroll Cue */}
-            <div className="fixed left-6 bottom-[26px] hidden items-center gap-[10px] text-[13px] text-black md:flex font-bold">
+            <div className="fixed left-6 bottom-[26px] hidden items-center gap-[10px] text-[13px] text-black md:flex font-bold zen-chrome">
                 <span
                     aria-hidden="true"
                     className="inline-block h-[28px] w-[28px] rounded-[8px] border-[1.5px] border-black bg-white"
@@ -70,7 +70,7 @@ const Hero = () => {
             </div>
 
             {/* Copyright */}
-            <div className="fixed right-[22px] bottom-[22px] hidden rounded-[12px] border border-[#ececf2] bg-white px-[12px] py-[10px] text-[12px] text-[#161618] shadow-[0_6px_20px_-14px_rgba(0,0,0,0.25)] md:block font-bold">
+            <div className="fixed right-[22px] bottom-[22px] hidden rounded-[12px] border border-[#ececf2] bg-white px-[12px] py-[10px] text-[12px] text-[#161618] shadow-[0_6px_20px_-14px_rgba(0,0,0,0.25)] md:block font-bold zen-chrome">
                 ©2025
             </div>
 

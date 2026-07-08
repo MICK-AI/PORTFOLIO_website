@@ -1,0 +1,65 @@
+/* ============================================================
+   THEME ENGINE — portfolio tokens (default)
+   ============================================================ */
+
+:root {
+  --bg: #ffffff;
+  --bg-base: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #f9fafb;
+  --surface-glass: rgba(255, 255, 255, 0.92);
+  --text: #0a0a0b;
+  --text-secondary: rgba(10, 10, 11, 0.7);
+  --text-muted: rgba(10, 10, 11, 0.45);
+  --accent: #0b0b0e;
+  --accent-emerald: #10b981;
+  --accent-cyan: #06b6d4;
+  --accent-glow: transparent;
+  --border: #e8e8ef;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-glow: transparent;
+  --glass-blur: 0px;
+  --glass-saturate: 100%;
+  --divider: rgba(0, 0, 0, 0.1);
+  --shadow-soft: 0 8px 30px -16px rgba(10, 10, 11, 0.06);
+  --shadow-glow: none;
+  --hero-grid: #e7e7ea;
+  --transition-theme: 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  --letter-spacing-body: 0em;
+  --font-weight-heading: 800;
+  --decorative-opacity: 1;
+  --motion-scale: 1;
+}
+
+/* ============================================================
+   ZEN MODE — global palette override
+   ============================================================ */
+
+html.zen-mode {
+  --bg: #030303;
+  --bg-base: #030303;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-elevated: rgba(255, 255, 255, 0.08);
+  --surface-glass: rgba(255, 255, 255, 0.06);
+  --text: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --accent: #34d399;
+  --accent-emerald: #10b981;
+  --accent-cyan: #22d3ee;
+  --accent-glow: rgba(52, 211, 153, 0.35);
+  --border: rgba(16, 185, 129, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(52, 211, 153, 0.22);
+  --glass-blur: 24px;
+  --glass-saturate: 140%;
+  --divider: rgba(16, 185, 129, 0.15);
+  --shadow-soft: 0 8px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 40px rgba(16, 185, 129, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --hero-grid: transparent;
+  --transition-theme: 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  --letter-spacing-body: 0.02em;
+  --font-weight-heading: 700;
+  --decorative-opacity: 0.12;
+  --motion-scale: 0.6;
+}

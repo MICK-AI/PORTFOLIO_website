@@ -23,7 +23,7 @@ const About = () => {
     return (
         <section
             ref={ref}
-            className="w-full bg-[#0a0a0a] text-white about-animate"
+            className="w-full bg-[#0a0a0a] text-white about-animate zen-chrome"
             aria-label="About section"
         >
             <style>{`

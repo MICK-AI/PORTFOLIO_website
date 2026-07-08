@@ -9,15 +9,17 @@ const customColorMap = {
     'bg-moss': { backgroundColor: '#6B8E23', color: '#FFFFFF' },
     'bg-blush': { backgroundColor: '#FFC0CB', color: '#000000' },
     'bg-ocean': { backgroundColor: '#00BFFF', color: '#FFFFFF' },
+    'bg-zen': { backgroundColor: '#0d9488', color: '#FFFFFF' },
 };
 
 // 🧩 Data for tiles
 const tiles = [
-    { id: "cloneables", title: "Agents", subtitle: "intelligence in motion ↗", tag: "AUTONOMOUS SYSTEMS", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/agents" },
+    { id: "cloneables", title: "Reading Stack", subtitle: "ideas worth bookmarking ↗", tag: "BOOK NOTES", bg: "bg-lemon", colSpan: "md:col-span-2", rowSpan: "md:row-span-2", route: "/agents" },
     { id: "youtube", title: "Projects", subtitle: "AI, applied with intent", tag: "#PORTFOLIO", bg: "bg-coral", colSpan: "md:col-span-3", rowSpan: "md:row-span-2", route: "/projects" },
     { id: "vacations", title: "Research Papers", subtitle: "Where intelligence begins.", tag: "#SOLOPRENEUR", bg: "bg-moss", colSpan: "md:col-span-2", route: "/research-papers" },
     { id: "designer", title: "Tutorials", subtitle: "Explaining complex ideas in simple steps", tag: "#DESIGN", bg: "bg-blush", colSpan: "md:col-span-2", route: "/ai-videos" },
     { id: "awards", title: "Tools", tag: "1X HONORABLE MENTION", bg: "bg-ocean", route: "/tools" },
+    { id: "zen", title: "Mission Control", subtitle: "Track knowledge hours ↗", tag: "#ZEN", bg: "bg-zen", colSpan: "md:col-span-5", route: "/mission-control" },
 ];
 
 // 🌀 Parent animation container
@@ -99,7 +101,7 @@ export default function AnimatedTilesSection() {
     return (
         <section
             ref={sectionRef}
-            className="bg-white min-h-screen pt-24 pb-24 font-inter relative overflow-hidden"
+            className="bg-white min-h-screen pt-24 pb-24 font-inter relative overflow-hidden zen-tile-section zen-chrome"
         >
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -111,7 +113,7 @@ export default function AnimatedTilesSection() {
 
             {/* ✨ Floating gradient background */}
             <motion.div
-                className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-gradient-to-r from-[#ff007f] to-[#00bfff] rounded-full blur-3xl opacity-20"
+                className="absolute -top-20 -left-20 w-[600px] h-[600px] bg-gradient-to-r from-[#ff007f] to-[#00bfff] rounded-full blur-3xl opacity-20 zen-tile-blob"
                 animate={{
                     x: [0, 100, -100, 0],
                     y: [0, 50, -50, 0],
@@ -133,7 +135,7 @@ export default function AnimatedTilesSection() {
                     {tiles.map((t) => {
                         const style = customColorMap[t.bg] || { backgroundColor: '#FFFFFF', color: '#000000' };
                         const isSmallerDesktopTitle =
-                            t.id === "vacations" || t.id === "designer" || t.id === "awards";
+                            t.id === "vacations" || t.id === "designer" || t.id === "awards" || t.id === "zen";
 
                         return (
                             <motion.article
